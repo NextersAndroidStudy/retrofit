@@ -2,7 +2,7 @@ package nexters.androidstudy.retrofittest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+//주석
 public class MainActivity extends AppCompatActivity {
 
     @Override
