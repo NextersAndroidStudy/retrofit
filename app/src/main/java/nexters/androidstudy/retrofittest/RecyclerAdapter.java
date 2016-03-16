@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +19,13 @@ import butterknife.ButterKnife;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder> {
     private Context mContext;
-    private List<RecyclerItem> mItems;
+    private List<GithubItem> mItems;
 
     public RecyclerAdapter(Context context) {
-        this(context,new ArrayList<RecyclerItem>());
+        this(context,new ArrayList<GithubItem>());
     }
 
-    public RecyclerAdapter(Context context,List<RecyclerItem> items) {
+    public RecyclerAdapter(Context context,List<GithubItem> items) {
         this.mContext = context;
         this.mItems = items;
     }
@@ -38,8 +37,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        RecyclerItem item = mItems.get(position);
-        Log.d("item:",item.toString());
+        GithubItem item = mItems.get(position);
         holder.item1.setText(item.getLogin());
         holder.item2.setText(item.getUrl());
 

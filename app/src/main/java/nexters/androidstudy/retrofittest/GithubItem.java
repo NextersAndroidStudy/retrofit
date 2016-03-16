@@ -3,14 +3,14 @@ package nexters.androidstudy.retrofittest;
 /**
  * Created by SEONGBONG on 2016-03-15.
  */
-public class RecyclerItem {
+public class GithubItem {
     private String login;
     private String url;
 
-    public RecyclerItem() {
+    public GithubItem() {
     }
 
-    public RecyclerItem(String login, String url) {
+    public GithubItem(String login, String url) {
         this.login = login;
         this.url = url;
     }
@@ -33,8 +33,8 @@ public class RecyclerItem {
 
     @Override
     public String toString() {
-        return "RecyclerItem{" +
-                "logIn='" + login + '\'' +
+        return "GithubItem{" +
+                "login='" + login + '\'' +
                 ", url='" + url + '\'' +
                 '}';
     }
