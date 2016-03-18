@@ -50,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 .baseUrl(NAVER_SEARCH_URL)
                 .client(new OkHttpClient())
                 .addConverterFactory(SimpleXmlConverterFactory.create())
-                .build();
-        naverSearchService = retrofit.create(NaverSearchService.class);
+                .build();  //callbackExecutor -> api call을 다른 스레드에서 하고 main에 넘겨줄떄...?즉, 돌아가는 곳 설정
+        //값 셋팅 끝
+        naverSearchService = retrofit.create(NaverSearchService.class); //retrofit 객체 생성(실행 될 수있는 인스턴스)
     }
     @OnClick(R.id.request_btn)
     public void requestBtnClick(){
+        //Call = okhttp를 가지고 있는 하나의 인터페이스
         /*Call<List<GithubItem>> call = githubService.githubItemContributors("seongbongjang", "retrofit");
 
         call.enqueue(new Callback<List<GithubItem>>() {
@@ -98,6 +100,6 @@ public class MainActivity extends AppCompatActivity {
     private void setContent(List<GithubItem> contributors) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new RecyclerAdapter(getApplicationContext(),contributors));
+        recyclerView.setAdapter(new RecyclerAdapter(MainActivity.this,contributors));
     }
 }
